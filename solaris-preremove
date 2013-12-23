@@ -1,0 +1,33 @@
+#!/bin/sh
+#
+# Pre-removal script for KORGcart
+# Krupczak.org Cartographer Agent
+# http://www.krupczak.org/cartographer
+# 
+
+CART_DIR=$BASEDIR/cartographer
+
+# backup files to /tmp for safekeeping
+if [ -f /etc/init.d/cartographer ]; then
+   /etc/init.d/cartographer stop
+   cp /etc/init.d/cartographer /tmp/
+   cp $CART_DIR/cartographer.xml /tmp
+   cp $CART_DIR/xmpd.xml /tmp
+   cp $CART_DIR/cartographer-local.xml /tmp
+   cp $CART_DIR/connectiondata.xml /tmp
+   cp $CART_DIR/appdata.xml /tmp
+   rm -f /etc/init.d/cartographer
+fi
+
+if [ -L /etc/rc3.d/S91cartographer ]; then
+   rm -f /etc/rc3.d/S91cartographer
+fi
+
+if [ -d $CART_DIR ]; then
+   rm -f $CART_DIR/xmp*.pem
+   rm -f $CART_DIR/*.csr
+fi
+
+sleep 5
+
+exit 0

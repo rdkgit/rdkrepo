@@ -1,0 +1,13 @@
+PKG="KORGcart"
+NAME="Krupczak.org Cartographer Agent"
+ARCH="i386,sparc"
+VERSION="1.3"
+DESC="Krupczak.org Cartographer Agent"
+VENDOR="The Krupczak Organization"
+HOTLINE="678.945.6433"
+EMAIL="info@krupczak.org"
+CATEGORY="application"
+MAXINST=1000
+BASEDIR="/opt"
+CLASSES="none"
+PSTAMP="Mon Feb 21 16:29:16 EST 2011"
